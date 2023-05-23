@@ -35,10 +35,18 @@ public class UploadController {
 
         SubmissionService.savePortfolio(new Submission(CAO, file));
 
+        boolean matchesPattern = CAO.matches("22\\d{6}");
+
+        String fileType = file.getContentType();
+        if((fileType.equals("application/pdf")) && matchesPattern){
+            return "success.html";
+        }
+        else
+            return "upload.html";
+
 
         //TODO if works, return success, else return upload with error message
         //redirect to success page
-        return "success.html";
         //ELSE
         //model error attribute
         //return "upload";
