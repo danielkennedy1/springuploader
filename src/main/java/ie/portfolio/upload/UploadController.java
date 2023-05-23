@@ -18,24 +18,33 @@ public class UploadController {
         this.SubmissionService = SubmissionService;
     }
 
-    //post endpoint to upload file
     @PostMapping("/upload")
-    public String uploadFile(@RequestParam("CAO") String CAO, @RequestParam("file") MultipartFile file) {
+    public String uploadFile(@RequestParam("CAO") String CAO, @RequestParam("file") MultipartFile file) throws IOException {
+
+        System.out.println("CAO: " + CAO);
+        System.out.println("File content type: " + file.getContentType());
+        System.out.println("File name: " + file.getName());
+
         int CAOInt = Integer.parseInt(CAO);
         String fileName = file.getOriginalFilename();
-        //save the file to DB
-        //if works, return success, else return upload with error message
-        return "success";
+
+
+
+        // TODO: check if file is a pdf
+        // TODO: check if CAO is 8 digits
+
+        SubmissionService.savePortfolio(new Submission(CAO, file));
+
+
+        //TODO if works, return success, else return upload with error message
+        //redirect to success page
+        return "success.html";
         //ELSE
         //model error attribute
         //return "upload";
     }
-    //get endpoint to see upload dialog
     @GetMapping("/upload")
-    public String uploadFile() throws IOException {
-        Submission submission = new Submission();
-        submission.setCAO("12345678");
-        SubmissionService.savePortfolio(submission);
-        return "upload";
+    public String uploadFile() {
+        return "upload.html";
     }
 }
