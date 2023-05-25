@@ -21,27 +21,18 @@ public class UploadController {
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("CAO") String CAO, @RequestParam("file") MultipartFile file) throws IOException {
 
-        System.out.println("CAO: " + CAO);
-        System.out.println("File content type: " + file.getContentType());
-        System.out.println("File name: " + file.getName());
+        boolean matchesPattern = CAO.matches("22\\d{6}");
+        String fileType = file.getContentType();
 
-        int CAOInt = Integer.parseInt(CAO);
-        String fileName = file.getOriginalFilename();
+        assert fileType != null;
 
-
-
-        // TODO: check if file is a pdf
-        // TODO: check if CAO is 8 digits
-
-        SubmissionService.savePortfolio(new Submission(CAO, file));
-
-
-        //TODO if works, return success, else return upload with error message
-        //redirect to success page
-        return "success.html";
-        //ELSE
-        //model error attribute
-        //return "upload";
+        if((fileType.equals("application/pdf")) && matchesPattern){
+            SubmissionService.savePortfolio(new Submission(CAO, file));
+            return "success.html";
+        }
+        else
+            //TODO: add error message to model
+            return "upload.html";
     }
     @GetMapping("/upload")
     public String uploadFile() {
