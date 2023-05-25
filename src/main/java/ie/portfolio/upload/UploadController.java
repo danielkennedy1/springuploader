@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-
 import java.io.IOException;
 
 @Controller
@@ -18,19 +17,30 @@ public class UploadController {
         this.SubmissionService = SubmissionService;
     }
 
-    //post endpoint to upload file
+    @GetMapping("/home")
+    public String home() {
+        return "home.html";
+    }
+
+    @GetMapping("/")
+    public String homeagain() {
+        return "home.html";
+    }
+
+    // post endpoint to upload file
     @PostMapping("/upload")
     public String uploadFile(@RequestParam("CAO") String CAO, @RequestParam("file") MultipartFile file) {
         int CAOInt = Integer.parseInt(CAO);
         String fileName = file.getOriginalFilename();
-        //save the file to DB
-        //if works, return success, else return upload with error message
+        // save the file to DB
+        // if works, return success, else return upload with error message
         return "success";
-        //ELSE
-        //model error attribute
-        //return "upload";
+        // ELSE
+        // model error attribute
+        // return "upload";
     }
-    //get endpoint to see upload dialog
+
+    // get endpoint to see upload dialog
     @GetMapping("/upload")
     public String uploadFile() throws IOException {
         Submission submission = new Submission();
@@ -38,4 +48,10 @@ public class UploadController {
         SubmissionService.savePortfolio(submission);
         return "upload";
     }
+
+    @GetMapping(value = "/login")
+    public String getMethodName() {
+        return "login.html";
+    }
+
 }
