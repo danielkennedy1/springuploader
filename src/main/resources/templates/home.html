@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="../static/styles/styles.css" rel="stylesheet"  /> 
+    <title>Home</title>
 </head>
 <body>
-    <h1>HELLO</h1>
+    <div class="header">
+        <img th:src="@{/Untitled.png}" alt="Ul logo">
+        Portfolio Submission Portal
+      </div>
+        <div class="container">
+            <h3>Welcome to the ISE Portfolio Upload System</h3>
+            <p></p>
+            <form action="/redirectToHome" method="GET">
+                <button type="submit">Login Page</button>
+            </form>
+        </div>
+        <div class="gifs ">
+            <img src="https://media.giphy.com/media/6pfEK1odbmcNi/giphy.gif" alt="Success GIF">
+        </div>
+        
+        <div class="footer">
+            Art Ó Liatháin, Daniel Kennedy, John Foley
+        </div>
+    </body>
 </body>
 </html>

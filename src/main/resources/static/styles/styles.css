@@ -46,3 +46,24 @@ button {
     
 }
 
+.successpage {
+    /* padding: 0px; */
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    
+}
+
+.gifs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.gifs img {
+    max-width: 100%;
+    max-height: 100%;
+}
