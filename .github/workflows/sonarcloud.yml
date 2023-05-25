@@ -75,10 +75,10 @@ name: SonarCloud Scan
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 env:
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
