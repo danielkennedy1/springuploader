@@ -4,25 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" /> 
     <title>Portfolio</title>
 </head>
 <body>
-    <div class="container" style="max-width: 500px">
-        <h3 class="mb-3">Thymeleaf File Upload example</h3>
+  <div class="header">
+    <img src="Untitled.png" alt="Ul logo">
+    Portfolio Submission Portal
+  </div>
+  <div class="container">
+    <div>
+      <h1>Submit portfolio here</h1>
       
-        <form
-          id="uploadForm"
-          method="post"
-          th:action="@{/files/upload}"
-          enctype="multipart/form-data">
-          <input id="input-file" type="file" name="file" />
-          <input id="cao-name" type="text" name="CAO" />
-          <button class="btn btn-sm btn-outline-success float-right" type="submit">
-            Upload
-          </button>
-        </form>
-          </button>
-        </div>
+      
+      <form
+        id="uploadForm"
+        method="post"
+        th:action="@{/upload}"
+        enctype="multipart/form-data">
+        <span>CAO Number</span>
+        <input id="cao-name" type="text" name="CAO" /> <br>
+        <input id="input-file" type="file" name="file" /> <br>
+        
+      
+
+        <button class="btn btn-sm btn-outline-success float-right" type="submit">
+          Upload
+        </button>
+      </form>
+        </button>
       </div>
+      </div>
+    </div>
+    <div class="footer">
+      Art Ó Liatháin, Daniel Kennedy, John Foley
+    </div>
 </body>
 </html>
