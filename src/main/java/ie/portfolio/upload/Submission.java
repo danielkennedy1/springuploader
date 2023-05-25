@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 
+// TODO: remove unused methods before submission
 @Entity
 public class Submission {
 
@@ -20,7 +21,7 @@ public class Submission {
     public Submission() {
     }
 
-    public Submission(String CAO, MultipartFile portfolio) throws IOException, IOException {
+    public Submission(String CAO, MultipartFile portfolio) throws IOException {
         this.CAO = CAO;
         this.portfolio = portfolio.getBytes();
     }
