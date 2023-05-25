@@ -59,7 +59,7 @@ jobs:
             -Dsonar.projectKey=danielkennedy1_springuploader
             -Dsonar.organization=danielkennedy1
             -Dsonar.sources=src/main/java/ie/portfolio/upload
-            -Dsonar.projectBaseDir=/ 
+            -Dsonar.projectBaseDir= ${{ github.workspace }}
             # Comma-separated paths to directories containing main source files.
             # optional, default is project base directory
             # When you need the analysis to take place in a directory other than the one from which it was launched
