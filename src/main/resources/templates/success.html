@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="../static/styles/styles.css" rel="stylesheet"  /> 
+    <title>Succcess</title>  
 </head>
 <body>
+  <div class="header">
+    <img th:src="@{/Untitled.png}" alt="Ul logo">
+    Portfolio Submission Portal
+  </div>
+    <div class="successpage">
+        <h3 class="success">Success: </h3>
+        <p>You have succesfully uploaded your pdf file to the database</p>
+
+        <form action="/redirect" method="GET">
+            <button type="submit">Return</button>
+        </form>
+    </div>
+    <div class="gifs ">
+        <img src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" alt="Success GIF">
+    </div>
     
+    <div class="footer">
+        Art Ó Liatháin, Daniel Kennedy, John Foley
+    </div>
 </body>
 </html>
