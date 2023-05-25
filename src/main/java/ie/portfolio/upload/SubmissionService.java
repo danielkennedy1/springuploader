@@ -16,6 +16,4 @@ public class SubmissionService {
     public Submission savePortfolio(Submission Submission) {
         return SubmissionRepository.save(Submission);
     }
-
-    // Other methods
 }
