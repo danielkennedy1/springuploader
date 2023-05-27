@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../static/styles/styles.css" rel="stylesheet"  /> 
+    <link th:href="@{/styles/styles.css}" rel="stylesheet"  /> 
     <title>Succcess</title>  
 </head>
 <body>
@@ -16,7 +16,7 @@
         <h3 class="success">Success: </h3>
         <p>You have succesfully uploaded your pdf file to the database</p>
 
-        <form action="/redirect" method="GET">
+        <form action="/home" method="GET">
             <button type="submit">Return</button>
         </form>
     </div>
