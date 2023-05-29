@@ -14,6 +14,13 @@
   </div>
   <div class="container">
     <div>
+      <div th:if="${errors}">
+        <div class="error" role="alert">
+          <ul>
+            <li th:each="error : ${errors}" th:text="${error}"></li>
+          </ul>
+        </div>
+      </div>
       <h1>Submit portfolio here</h1>
       
       
