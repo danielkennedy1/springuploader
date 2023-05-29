@@ -11,6 +11,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
 @Configuration
 @EnableWebSecurity
@@ -20,12 +21,16 @@ public class WebSecurityConfig {
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
                 http
                                 .authorizeHttpRequests((requests) -> requests
-                                                .requestMatchers("/", "/home").permitAll()
-                                                .anyRequest().authenticated())
+                                                .requestMatchers("/upload", "/success")
+                                                .authenticated()
+                                                .anyRequest().permitAll())
                                 .formLogin((form) -> form
                                                 .loginPage("/login")
+                                                .defaultSuccessUrl("/upload", true)
                                                 .permitAll())
-                                .logout((logout) -> logout.permitAll());
+                                .logout((logout) -> logout.permitAll())
+                                .csrf().disable()
+                                .headers().frameOptions().disable();
 
                 return http.build();
         }
