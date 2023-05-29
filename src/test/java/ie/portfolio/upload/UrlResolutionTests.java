@@ -25,7 +25,7 @@ public class    UrlResolutionTests {
             "/, home.html",
             "/login, login.html"
     })
-    public void testNoAuth(String path, String template) throws Exception {
+    void testNoAuth(String path, String template) throws Exception {
         mockMvc.perform(get(path))
                 .andExpect(status().isOk())
                 .andExpect(view().name(template));
@@ -33,7 +33,7 @@ public class    UrlResolutionTests {
 
     // Test that the upload page redirects to the login page when not authenticated
     @Test
-    public void testAuthRedirect() throws Exception {
+    void testAuthRedirect() throws Exception {
         mockMvc.perform(get("/upload"))
                 .andExpect(status().is3xxRedirection());
     }
@@ -41,7 +41,7 @@ public class    UrlResolutionTests {
     // Authorised testcases
     @Test
     @WithMockUser(username = "user", password = "password", roles = "USER")
-    public void testUploadPage() throws Exception {
+    void testUploadPage() throws Exception {
         mockMvc.perform(get("/upload"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("upload.html"));
